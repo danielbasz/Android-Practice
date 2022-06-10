@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         //counterView is the TextView that displays the value of the counter
         TextView counterView = findViewById(R.id.counterId);
         Button counterReset = findViewById(R.id.buttonResetId);
+        Button increment = findViewById(R.id.buttonIncId);
+        Button decrement = findViewById(R.id.buttonDecId);
 
         counterView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,29 @@ public class MainActivity extends AppCompatActivity {
                 snack.show();
             }
         });
+
+        increment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCounter++;
+                TextView counterText = findViewById(R.id.counterId);
+                counterText.setText(String.valueOf(mCounter));
+                Snackbar snack = Snackbar.make(view, "the counter is now " + mCounter, Snackbar.LENGTH_LONG);
+                snack.show();
+            }
+        });
+
+        decrement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCounter--;
+                TextView counterText = findViewById(R.id.counterId);
+                counterText.setText(String.valueOf(mCounter));
+                Snackbar snack = Snackbar.make(view, "the counter is now " + mCounter, Snackbar.LENGTH_LONG);
+                snack.show();
+            }
+        });
+
 
     }
 }
